@@ -1,1 +1,37 @@
-Add your answers to the Algorithms exercises here.
+###Excercise I
+
+a) O(n) - You are running a single operation per input, regardless of the size of the input. If a is larger than n cubed, you return. Otherwise you run this single operation. Thus it is constant time.
+
+b) If we break this down line by line:
+
+| Line                           | Big O |
+| ------------------------------ | ----- |
+| for i in range(n):             | n     |
+| i += 1                         | 1     |
+| for j in range(i + 1, n):      | n     |
+| k += 1                         | 1     |
+| for l in range(k + 1, 10 + k): | n     |
+| l += 1                         | 1     |
+| sum += 1                       | 1     |
+
+Multiply and reduce.
+
+Answer: O(n^3)
+
+c) Following the same logic as question a, this has a runtime of O(n)
+
+###Excercise II
+
+a) Define the problem
+
+_f_ = floor at which an egg will break
+
+For an _n_ story building, find _f_ as efficiently as possible.
+
+b) Solve the problem
+
+This would be best solved using a binary tree.
+
+Start halfway up the building. Drop the egg. If it breaks, you can eliminate every floor above that floor, thus cutting the problem in half. Repeat this until you find your target.
+
+The runtime complexity? log2(n)
