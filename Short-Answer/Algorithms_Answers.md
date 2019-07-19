@@ -1,6 +1,6 @@
 ###Excercise I
 
-a) O(n) - You are running a single operation per input, regardless of the size of the input. If a is larger than n cubed, you return. Otherwise you run this single operation. Thus it is constant time.
+a) O(n) - Tricky. Okay so would normally be O(n^3) but since since a=0 we add n^2 to a each time, making it more like a for loop.
 
 b) If we break this down line by line:
 
