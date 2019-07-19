@@ -93,11 +93,25 @@ class SortingRobot:
         return self._light == "ON"
 
     def sort(self):
-        for i in range(len(self._list)):
-                for j in range(1,len(self._list)):
-                    if self._list[j-1] > self._list[j]:
-                        (self._list[j-1], self._list[j]) = (self._list[j], self._list[j-1])
-        return self._list
+        self.set_light_on() #acts as our boolean
+        
+        while self.light_is_on(): 
+            #shut light off at end of arr
+            if not self.can_move_right():
+                self.set_light_off()
+                break
+            self.swap_item()
+
+            while self.can_move_right(): #iterate through the array
+                self.move_right() #if you can move right, do so
+                if self.compare_item() == 1: #if next elem is greater
+                    self.swap_item() #swap it
+
+            while self.compare_item() is not None: #while still in array
+                self.move_left() #shift elements left
+
+            self.swap_item() #swap the items 
+            self.move_right() #keep moving right
   
 
 
